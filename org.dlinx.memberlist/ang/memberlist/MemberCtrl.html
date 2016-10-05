@@ -1,0 +1,37 @@
+<div class="crm-container">
+  <div crm-ui-debug="members"></div>
+  <form name="myForm" crm-ui-id-scope>
+    <div crm-ui-accordion="{title: ts('Member List')}">
+      <table>
+        <tr>
+          <th>Contact ID</th>
+          <th>Membership Type ID</th>
+          <th>Join Date</th>
+          <th>End Date</th>
+          <th>Source</th>
+          <th>Status ID</th>
+          <th>Test</th>
+          <th>Pay Later</th>
+          <th>ID</th>
+          <th>Membership Name</th>
+          <th>Relationship Name</th>
+        </tr>
+        <tr ng-repeat="member in members">
+          <td>{{member.contact_id}}</td>
+          <td>{{member.membership_type_id}}</td>
+          <td>{{member.join_date}}</td>
+          <td>{{member.end_date}}</td>
+          <td>{{member.source}}</td>
+          <td>{{member.status_id}}</td>
+          <td>{{member.is_test}}</td>
+          <td>{{member.is_pay_later}}</td>
+          <td>{{member.id}}</td>
+          <td>{{member.membership_name}}</td>
+          <td>{{member.relationship_name}}</td>
+        </tr>
+      </table>
+    </div>
+
+  </form>
+
+</div>
