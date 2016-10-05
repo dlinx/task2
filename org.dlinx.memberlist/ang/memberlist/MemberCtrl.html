@@ -8,10 +8,10 @@
         <label>Join Date</label>
         <label>
           From:
-          <input type="text" ui-jq="datepicker" ng-Model="memberCtrl.minDate" ng-change="memberCtrl.applyFilter()">
+          <input type="text" crm-ui-datepicker="{time: false,date:'m/d/y'}" ng-Model="memberCtrl.minDate" ng-change="memberCtrl.applyFilter()">
         </label>
         <label>To:
-          <input type="text" ui-jq="datepicker" ng-Model="memberCtrl.maxDate" ng-change="memberCtrl.applyFilter()">
+          <input type="text" crm-ui-datepicker="{time: false,date:'m/d/y'}" ng-Model="memberCtrl.maxDate" ng-change="memberCtrl.applyFilter()">
         </label>
       </div>
       <table class="dlinx-member-list">
