@@ -1,1 +1,24 @@
 /* Add any CSS rules for Angular module "memberlist" */
+.dlinx-pagination{
+    float: right;
+}
+.dlinx-pagination li{
+    list-style:none;
+    display:inline;
+    padding: 5px;
+}
+.dlinx-pagination li.active a{
+    cursor: default ;
+    color: #000 ;
+    text-decoration: none ;
+}
+
+.member-list tr:nth-child(even) {
+    background-color: #fff;
+}
+.dlinx-member-list tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+.dlinx-top-info {
+    padding: 0 10px;
+}

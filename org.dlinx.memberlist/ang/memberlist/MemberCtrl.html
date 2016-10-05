@@ -1,35 +1,57 @@
 <div class="crm-container">
   <div crm-ui-debug="members"></div>
   <form name="myForm" crm-ui-id-scope>
-    <div crm-ui-accordion="{title: ts('Member List')}">
-      <table>
-        <tr>
-          <th>Contact ID</th>
-          <th>Membership Type ID</th>
-          <th>Join Date</th>
-          <th>End Date</th>
-          <th>Source</th>
-          <th>Status ID</th>
-          <th>Test</th>
-          <th>Pay Later</th>
-          <th>ID</th>
-          <th>Membership Name</th>
-          <th>Relationship Name</th>
-        </tr>
-        <tr ng-repeat="member in members">
-          <td>{{member.contact_id}}</td>
-          <td>{{member.membership_type_id}}</td>
-          <td>{{member.join_date}}</td>
-          <td>{{member.end_date}}</td>
-          <td>{{member.source}}</td>
-          <td>{{member.status_id}}</td>
-          <td>{{member.is_test}}</td>
-          <td>{{member.is_pay_later}}</td>
-          <td>{{member.id}}</td>
-          <td>{{member.membership_name}}</td>
-          <td>{{member.relationship_name}}</td>
-        </tr>
+    <div crm-ui-accordion="{title: memberCtrl.ts('Member List')}">
+
+      <div class="dlinx-top-info">
+        <p> Showing {{memberCtrl.pageMembers.length}} members of {{memberCtrl.members.length}}</p>
+        <label>Start Date</label>
+        <label>
+          From:
+          <input type="text" ui-jq="datepicker" ng-Model="memberCtrl.minDate" ng-change="memberCtrl.applyFilter()">
+        </label>
+        <label>To:
+          <input type="text" ui-jq="datepicker" ng-Model="memberCtrl.maxDate" ng-change="memberCtrl.applyFilter()">
+        </label>
+      </div>
+      <table class="dlinx-member-list">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Contact ID</th>
+            <th>Membership Type ID</th>
+            <th>Join Date</th>
+            <th>End Date</th>
+            <th>Source</th>
+            <th>Status ID</th>
+            <th>Is Test</th>
+            <th>Is Pay Later</th>
+            <th>Membership Name</th>
+            <th>Relationship Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="member in memberCtrl.pageMembers">
+            <td>{{member.id}}</td>
+            <td>{{member.contact_id}}</td>
+            <td>{{member.membership_type_id}}</td>
+            <td>{{member.join_date|date}}</td>
+            <td>{{member.end_date |date}}</td>
+            <td>{{member.source}}</td>
+            <td>{{member.status_id}}</td>
+            <td>{{member.is_test}}</td>
+            <td>{{member.is_pay_later}}</td>
+            <td>{{member.membership_name}}</td>
+            <td>{{member.relationship_name}}</td>
+          </tr>
+        </tbody>
       </table>
+      <ul class="dlinx-pagination" ng-if="memberCtrl.pages.length!==1">
+        <li>Pages:</li>
+        <li ng-repeat="page in memberCtrl.pages track by $index" ng-click="memberCtrl.selectPage($index);" ng-class="{active:$index==memberCtrl.pageIndex}">
+          <a href="">{{$index+1}}</a>
+        </li>
+      </ul>
     </div>
 
   </form>
