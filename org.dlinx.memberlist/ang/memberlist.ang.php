@@ -7,8 +7,9 @@ return array (
   'js' => 
   array (
     0 => 'ang/memberlist.js',
-    1 => 'ang/memberlist/*.js',
-    2 => 'ang/memberlist/*/*.js',
+    1 => 'ang/memberlist/Member.config.js',
+    2 => 'ang/memberlist/Member.filter.js',
+    3 => 'ang/memberlist/Member.controller.js'
   ),
   'css' => 
   array (
